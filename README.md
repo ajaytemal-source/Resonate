@@ -2,6 +2,8 @@
 
 Resonate is an AI-powered real-time speech coach designed to help people communicate more effectively — offering gentle, adaptive feedback based on tone, pacing, and confidence. Users can select their intended tone, conversation setting, and audience, which are then used to provide tailored, real-time feedback. 
 
+This project won first place at Hiya’s AI Voice Innovation Challenge at NYU.
+
 ---
 
 ## Inspiration
