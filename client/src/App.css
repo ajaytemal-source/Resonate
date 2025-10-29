@@ -1,0 +1,725 @@
+/* Modern App Layout */
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Fixed left-center audio icon */
+.side-audio-left {
+  position: fixed;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  height: auto;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.95;
+  transition: opacity 400ms ease;
+}
+
+.side-audio-right {
+  position: fixed;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  height: auto;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.95;
+  transition: opacity 400ms ease;
+}
+
+/* Fade out side audio icons during streaming */
+.app.streaming .side-audio-left,
+.app.streaming .side-audio-right {
+  opacity: 0;
+}
+
+/* Glass morphism container */
+.app::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: -1;
+}
+
+/* Header with modern styling */
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Hero intro */
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #2d3748;
+  font-family: 'Sora', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif !important;
+  opacity: 0;
+  animation: fadeIn 600ms ease forwards;
+  text-align: center;
+}
+
+.hero-slogan {
+  font-size: 1.5rem;
+  color: #4a5568;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeIn 700ms ease forwards;
+  animation-delay: 150ms;
+  text-align: center;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: opacity 400ms ease, transform 400ms ease;
+  min-height: 220px;
+}
+
+.hero.fadeOut {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+.hero-cta {
+  margin-top: 0.5rem;
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+/* Reserve space to avoid layout shift during fades */
+.hero-title,
+.hero-slogan,
+.hero-cta {
+  will-change: opacity, transform;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Fade-in for the tone dropdown */
+.tone-select {
+  opacity: 0;
+  animation: fadeIn 600ms ease forwards;
+  animation-delay: 100ms;
+}
+
+.sequence {
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+.sequence.fadeOut {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+section h2 {
+  margin-bottom: 1.5rem;
+  color: #2d3748;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+/* React Select Styling */
+.react-select-container {
+  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.react-select__control {
+  min-height: 3.5rem !important;
+  border-radius: 16px !important;
+  border: 2px solid rgba(255, 255, 255, 0.25) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer !important;
+}
+
+.react-select__control:hover {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 
+    0 6px 16px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+}
+
+.react-select__control--is-focused {
+  border-color: rgba(102, 126, 234, 0.8) !important;
+  box-shadow: 
+    0 0 0 4px rgba(102, 126, 234, 0.15),
+    0 8px 20px rgba(102, 126, 234, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  background: rgba(255, 255, 255, 0.25) !important;
+  transform: translateY(-1px) !important;
+}
+
+.react-select__value-container {
+  padding: 0.5rem 1rem !important;
+}
+
+.react-select__placeholder {
+  color: #6b7280 !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+}
+
+.react-select__single-value {
+  color: #2d3748 !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+}
+
+.react-select__indicator-separator {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.react-select__dropdown-indicator {
+  color: #667eea !important;
+  padding: 0.5rem !important;
+}
+
+.react-select__dropdown-indicator:hover {
+  color: #764ba2 !important;
+}
+
+.react-select__menu {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  margin-top: 0.5rem !important;
+  overflow: hidden !important;
+}
+
+.react-select__menu-list {
+  padding: 0.5rem !important;
+}
+
+.react-select__option {
+  background: transparent !important;
+  color: #2d3748 !important;
+  padding: 0.75rem 1rem !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+  margin-bottom: 0.25rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.react-select__option:hover {
+  background: rgba(102, 126, 234, 0.1) !important;
+  color: #667eea !important;
+}
+
+.react-select__option--is-focused {
+  background: rgba(102, 126, 234, 0.15) !important;
+  color: #667eea !important;
+}
+
+.react-select__option--is-selected {
+  background: rgba(102, 126, 234, 0.2) !important;
+  color: #667eea !important;
+  font-weight: 600 !important;
+}
+
+/* Modern button styling */
+button {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.025em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 4px 12px rgba(102, 126, 234, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  animation: slideInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 20px rgba(102, 126, 234, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+button:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  background: linear-gradient(135deg, #a0aec0 0%, #718096 100%);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 2px 8px rgba(160, 174, 192, 0.3);
+}
+
+/* Conversation selection and feedback dashboard transitions */
+.conversation-selection,
+.feedback-dashboard {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Feedback dashboard specific styling */
+.feedback-dashboard {
+  animation: slideInFromRight 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Match fade-in/slide-in behavior for AI panel on session start */
+.ai-feedback-panel {
+  animation: slideInFromRight 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Two-panel layout */
+.panels-row {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  align-items: stretch;
+  /* Fix panel row height so backdrop and layout don't jump with content */
+  min-height: 520px;
+  height: 60vh;
+}
+
+.panels-row > section {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  /* Give panels their own stable glass backdrop that doesn't resize with messages */
+  padding: 1.25rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Center header only for AI Feedback panel */
+.ai-feedback-panel h2 {
+  text-align: center;
+}
+
+/* Flash the AI panel backdrop briefly on new feedback */
+.panels-row > section.ai-feedback-panel.flash-backdrop {
+  animation: flashGlass 600ms ease;
+}
+
+@keyframes flashGlass {
+  0% {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  30% {
+    /* Neutral white flash */
+    background: rgba(255, 255, 255, 0.28);
+    border-color: rgba(255, 255, 255, 0.35);
+  }
+  100% {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* AI Feedback animations */
+.ai-feedback-container {
+  width: 100%;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Allow this container to expand to fill the panel height consistently */
+  flex: 1 1 auto;
+}
+
+.ai-feedback {
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 250ms ease;
+  /* Increase AI feedback text size by ~6px over base */
+  font-size: calc(1rem + 6px);
+  line-height: 1.35;
+}
+
+.ai-feedback.fadingOut {
+  opacity: 0;
+}
+
+.ai-word {
+  opacity: 0;
+  display: inline-block;
+  animation: aiWordFadeIn 420ms ease forwards;
+  margin-right: 0.35rem;
+}
+
+.ai-word:last-child {
+  margin-right: 0;
+}
+
+@keyframes aiWordFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Make inner content grow so both panels equalize height */
+.panels-row > section .feedback-placeholder,
+.panels-row > section .messages {
+  flex: 1 1 auto;
+}
+
+/* Make transcript list scroll within a fixed-height panel, not grow the panel */
+.panels-row .messages {
+  max-height: none;
+  overflow-y: auto;
+  width: 100%;
+}
+
+/* Ensure transcript containers span the full backdrop width */
+.panels-row .message,
+.panels-row .transcription-result {
+  width: 100%;
+}
+
+/* Keep stop button at the bottom of its panel */
+.feedback-dashboard .stop-button {
+  align-self: flex-end;
+  margin-top: 1rem;
+}
+
+.panels-actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.feedback-placeholder {
+  color: #4a5568;
+  font-style: italic;
+  text-align: center;
+  margin-top: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.feedback-placeholder:contains("Streaming") {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .panels-row {
+    flex-direction: column;
+  }
+  .app {
+    padding: 1rem;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+  section {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  section h2 {
+    font-size: 1.25rem;
+  }
+
+  button {
+    width: 100%;
+    padding: 1.25rem 2rem;
+  }
+
+  .conversation-selection select {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 0.75rem;
+  }
+
+  header {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  section {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Status Info */
+.status-info {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.status-info p {
+  margin: 0.25rem 0;
+  color: #e0e0e0;
+}
+
+/* Messages */
+.messages {
+  margin-top: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.message {
+  margin: 0.75rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Transcription Results */
+.transcription-result {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1));
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.transcription-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: #a0a0a0;
+}
+
+.timestamp {
+  font-weight: 500;
+}
+
+/* Use a much lighter grey for timestamps */
+.transcription-header .timestamp {
+  color: #e5e5e5;
+}
+
+.duration {
+  background: rgba(76, 175, 80, 0.2);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+}
+
+.transcription-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.word-timestamps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.word-timestamp {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  color: #b0b0b0;
+}
+
+/* Feedback metric label (override inline style) */
+.feedback-key {
+  color: #e5e5e5 !important;
+}
+
+/* Message Types */
+.ready-message, .ack-message, .complete-message {
+  padding: 0.75rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ready-message {
+  background: linear-gradient(135deg, rgba(33, 150, 243, 0.2), rgba(33, 150, 243, 0.1));
+  border: 1px solid rgba(33, 150, 243, 0.3);
+}
+
+.ack-message {
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(255, 193, 7, 0.1));
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.complete-message {
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.2), rgba(156, 39, 176, 0.1));
+  border: 1px solid rgba(156, 39, 176, 0.3);
+}
+
+.message-type {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.message-content {
+  color: #e0e0e0;
+  font-size: 0.9rem;
+}
+
+/* Raw Messages */
+.raw-message {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+.raw-message .message-type {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #a0a0a0;
+}
+
+.raw-message pre {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: #d0d0d0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
