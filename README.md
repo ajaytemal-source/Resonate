@@ -12,6 +12,8 @@ Language is nuanced. The way we speak, listen, and interpret can vary so much fr
 
 I’ve often struggled with speech myself, especially under pressure, and I know I’m not alone. Many people hold back from communicating, not because they have nothing to say, but because they fear they won’t be understood. The goal of Resonate is to support those who struggle, helping them express what they want to communicate. As I continue developing Resonate, that goal will always guide my work. 
 
+---
+
 ## Tech Stack
 
 Backend: Python WebSocket server for bi-directional audio streaming and real-time communication.
