@@ -65,10 +65,10 @@ export OPENAI_API_KEY=<your_key>
 python ws_server.py
 ```
 
-Enable microphone capture on your browser, choose your speech settings, and start talking!
-
 ### Run the Frontend Client
 ```bash
 cd client
 npm run dev
 ```
+
+Enable microphone capture on your browser, choose your speech settings, and start talking!
