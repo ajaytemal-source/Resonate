@@ -31,10 +31,10 @@ Pipeline: Captured user audio → transmitted via WebSocket → processed by Whi
 ## User Interface
 
 ### Home Selection Screen
-![Selection Screen](path/to/home-selection.png)
+![Selection Screen](images/SelectionScreen.png)
 
 ### Live Session
-![Live Session](path/to/live-session.png)
+![Live Session](images/LiveSession.png)
 
 ## Installation
 
