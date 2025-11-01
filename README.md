@@ -28,6 +28,14 @@ Pipeline: Captured user audio → transmitted via WebSocket → processed by Whi
 
 ---
 
+## User Interface
+
+### Home Selection Screen
+![Selection Screen](path/to/home-selection.png)
+
+### Live Session
+![Live Session](path/to/live-session.png)
+
 ## Installation
 
 ### Backend Dependencies
