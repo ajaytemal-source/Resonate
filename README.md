@@ -40,8 +40,7 @@ Processed by Whisper & Behavioral Signals
 Analyzed and summarized by GPT-4-Turbo 
    ↓
 Feedback streamed back to the client UI
-
-
+```
 ---
 
 ## User Interface
