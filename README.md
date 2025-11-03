@@ -16,15 +16,33 @@ I’ve often struggled with speech myself, especially under pressure, and I know
 
 ## Tech Stack
 
-Backend: Python WebSocket server for bi-directional audio streaming and real-time communication.
+## 🧠 System Overview
 
-APIs: Integrated OpenAI Whisper for speech-to-text and Behavioral Signals API for tonal and emotional analysis.
+### Backend
+- **Python WebSocket server** for **bi-directional audio streaming** and **real-time communication**.
 
-LLM Integration: GPT-4-Turbo used to generate context-aware, conversational feedback based on analysis results.
+### APIs
+- Integrated **OpenAI Whisper** for **speech-to-text**.  
+- Utilized **Behavioral Signals API** for **tonal and emotional analysis**.
 
-Frontend: Developed in React (Vite) with a JavaScript WebSocket client to receive live feedback from the backend.
+### LLM Integration
+- **GPT-4-Turbo** generates **context-aware, conversational feedback** based on analysis results.
 
-Pipeline: Captured user audio → transmitted via WebSocket → processed by Whisper & Behavioral Signals → analyzed and summarized by GPT-4-Turbo → feedback streamed back to the client UI.
+### Frontend
+- Built with **React (Vite)** using a **JavaScript WebSocket client** to receive live feedback from the backend.
+
+### Pipeline
+```text
+User Audio 
+   ↓
+Transmitted via WebSocket 
+   ↓
+Processed by Whisper & Behavioral Signals 
+   ↓
+Analyzed and summarized by GPT-4-Turbo 
+   ↓
+Feedback streamed back to the client UI
+
 
 ---
 
