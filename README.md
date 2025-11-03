@@ -14,9 +14,7 @@ I’ve often struggled with speech myself, especially under pressure, and I know
 
 ---
 
-## Tech Stack
-
-## 🧠 System Overview
+## System Overview
 
 ### Backend
 - **Python WebSocket server** for **bi-directional audio streaming** and **real-time communication**.
