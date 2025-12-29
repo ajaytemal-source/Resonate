@@ -8,6 +8,11 @@ This project won first place at Hiya’s AI Voice Innovation Challenge at NYU.
 
 ## Inspiration & Mission
 
+> "The limits of my language mean the limits of my world."
+>
+> — Ludwig Wittgenstein
+
+
 Language is nuanced. The way we speak, listen, and interpret can vary so much from person to person. Due to this, there tends to be this invisible barrier between what we intend on communicating and what others perceive. When we miss conversational cues, get tunnel vision, misinterpret tone and intent, this harms our ability to collaborate and weaken our mutual understanding. Despite the unique perspectives and expertise we bring to each interaction, our voices can be the very thing that stops them from being fully realized. And if you’ve ever tried to stay be aware of how you’re speaking on top of listening and responding, you likely know how distracting and draining that can be. 
 
 I’ve often struggled with speech myself, especially under pressure, and I know I’m not alone. Many people hold back from communicating, not because they have nothing to say, but because they fear they won’t be understood. The goal of Resonate is to support those who struggle, helping them express what they want to communicate. As I continue developing Resonate, that goal will always guide my work. 
